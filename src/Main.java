@@ -39,8 +39,9 @@ public class Main {
      * Даны строки S и S0. Найти количество вхождений строки S0 в строку S.
      */
     public static void task2() {
-        String S = "gffgdabcabcs", S0 = "abc";
-        System.out.println((S.length() - S.replace(S0, "").length()) / S0.length());
+        String S = "gf fgd abcabcs", S0 = "abc";
+        System.out.println("Количество вхождений >" + S0 + "< в >" + S + "<: " +
+                (S.length() - S.replace(S0, "").length()) / S0.length());
     }
 
 
@@ -65,20 +66,20 @@ public class Main {
      * превратится в «ргамамроП»).
      */
     public static void task4() {
-        int m = 0;
+        byte m = 0;
         String SentenceString = "Зашифруем его";
-        char[] sawe = SentenceString.toCharArray();
-        char[] finalSentcnce = new char[SentenceString.length()];
-        int lenght = SentenceString.length();
-        for (int i = 1; i < lenght; i += 2) {
-            finalSentcnce[m] = sawe[i];
+        char[] save = SentenceString.toCharArray();
+        char[] finalSentence = new char[SentenceString.length()];
+        int length = SentenceString.length();
+        for (int i = 1; i < length; i += 2) {
+            finalSentence[m] = save[i];
             m++;
         }
-        for (int i = lenght - 1; i >= 0; i -= 2) {
-            finalSentcnce[m] = sawe[i];
+        for (int i = length - 1; i >= 0; i -= 2) {
+            finalSentence[m] = save[i];
             m++;
         }
-        System.out.println(finalSentcnce);
+        System.out.println(finalSentence);
     }
 
 
@@ -90,25 +91,19 @@ public class Main {
      */
     public static void task5() {
         String inputString = "ЯБа Бв,.я";
-        final byte K = 1;
-        System.out.println(K);
+        final byte K = (byte) (Math.random() * 8 + 1);
+        System.out.println("Число К равно: " + K);
         char[] stringToArray = inputString.toCharArray();
         for (int i = 0; i < stringToArray.length; i++) {
-
-            if (stringToArray[i]<1040||stringToArray[i]>1103){}
-
-            else if (stringToArray[i] < 1072 && stringToArray[i] + K < 1072)
-                stringToArray[i] += K;
-            else if (stringToArray[i] < 1072 && stringToArray[i] + K > 1071)
-                stringToArray[i] += K - 32;
-
-            else if (stringToArray[i] < 1104 && stringToArray[i] + K < 1104)
-                stringToArray[i] += K;
-            else
-                stringToArray[i] += K - 32;
+            if (stringToArray[i] < 1040 || stringToArray[i] > 1103) {
+            } else if (stringToArray[i] < 1072) {
+                stringToArray[i] += stringToArray[i] + K < 1072 ? K : K - 32;
+            } else if (stringToArray[i] < 1104) {
+                stringToArray[i] += stringToArray[i] + K < 1104 ? K : K - 32;
+            }
         }
-        System.out.println(stringToArray);
-
+        System.out.println("Начальный вид:\n"+inputString+" \nИтоговый вид:");
+        System.out.print(stringToArray);
     }
 
 
@@ -119,9 +114,7 @@ public class Main {
     public static void task6() {
         String filepath = "//C:\\Project.exe";
         String[] words = filepath.split("\\\\");
-        if (words.length > 2)
-            System.out.println("Название первого каталога: " + words[1]);
-        else
-            System.out.println("Файл находится в корневом каталоге: \\");
+        System.out.println(words.length > 2
+                ? "Название первого каталога: " + words[1] : "Файл находится в корневом каталоге: \\");
     }
 }
