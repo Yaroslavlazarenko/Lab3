@@ -6,8 +6,8 @@ public class Main {
         //task2();
         //task3();
         //task4();
-        //task5();
-        task6();
+        task5();
+        //task6();
     }
 
 
@@ -89,20 +89,22 @@ public class Main {
      * не учитывать, знаки препинания и пробелы не изменять.
      */
     public static void task5() {
-        String inputString = "ЯаБвя";
+        String inputString = "ЯБа Бв,.я";
         final byte K = 1;
         System.out.println(K);
         char[] stringToArray = inputString.toCharArray();
         for (int i = 0; i < stringToArray.length; i++) {
 
-            if (stringToArray[i] < 1072 && stringToArray[i] + K < 1072)
+            if (stringToArray[i]<1040||stringToArray[i]>1103){}
+
+            else if (stringToArray[i] < 1072 && stringToArray[i] + K < 1072)
                 stringToArray[i] += K;
             else if (stringToArray[i] < 1072 && stringToArray[i] + K > 1071)
                 stringToArray[i] += K - 32;
 
             else if (stringToArray[i] < 1104 && stringToArray[i] + K < 1104)
                 stringToArray[i] += K;
-            else if (stringToArray[i] < 1104 && stringToArray[i] + K > 1103)
+            else
                 stringToArray[i] += K - 32;
         }
         System.out.println(stringToArray);
