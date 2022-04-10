@@ -91,7 +91,7 @@ public class Main {
      */
     public static void task5() {
         String inputString = "ЯБа Бв,.я";
-        final byte K = (byte) (Math.random() * 8 + 1);
+        final byte K = (byte) (Math.random() * 9 + 1);
         System.out.println("Число К равно: " + K);
         char[] stringToArray = inputString.toCharArray();
         for (int i = 0; i < stringToArray.length; i++) {
